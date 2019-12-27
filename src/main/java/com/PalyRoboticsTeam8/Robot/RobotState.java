@@ -22,6 +22,10 @@ public class RobotState extends HardwareAdapter {
     }
     public double getDrivetrainRightEncoderPosition() { return mDrivetrainRightEncoderPosition; }
     public double getDrivetrainGyroAngleDegrees() {return mGyroAngleDegrees; }
+   public double getJoystickThrottle() {return driveJoystick.getThrottle();}
+   public double getDriveJoystickX() {return driveJoystick.getX();}
+   public double getDriveJoystickY() {return driveJoystick.getY();}
+
 
     public void setDrivetrainLeftEncoderVelocity(double mDrivetrainLeftEncoderVelocity) { this.mDrivetrainLeftEncoderVelocity = mDrivetrainLeftEncoderVelocity; }
     public void setDrivetrainLeftEncoderPosition(double mDrivetrainLeftEncoderPosition) { this.mDrivetrainLeftEncoderPosition = mDrivetrainLeftEncoderPosition; }

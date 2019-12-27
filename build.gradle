@@ -6,9 +6,9 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-def ROBOT_MAIN_CLASS = "frc.robot.Main"
+def ROBOT_MAIN_CLASS = "com.PalyRoboticsTeam8.Robot.Main"
 
-// Define my targets (RoboRIO) and artifacts (deployable files)
+//// Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
 deploy {
     targets {

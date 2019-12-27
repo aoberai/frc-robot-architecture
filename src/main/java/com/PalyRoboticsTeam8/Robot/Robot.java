@@ -8,7 +8,9 @@
 package com.PalyRoboticsTeam8.Robot;
 
 import com.PalyRoboticsTeam8.Autos.AutoSequence;
-import com.PalyRoboticsTeam8.Routines.RoutineManager;
+import com.PalyRoboticsTeam8.Routines.SequentialRoutineManager;
+import com.PalyRoboticsTeam8.Subsystems.Subsystem;
+import com.PalyRoboticsTeam8.Subsystems.SubsystemManager;
 import edu.wpi.first.wpilibj.TimedRobot;
 import com.PalyRoboticsTeam8.Autos.AutoManager;
 
@@ -40,7 +42,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
-        HardwareReader.getHardwareReader().updateSensorValues();
+
     }
 
     /**
@@ -67,12 +69,20 @@ public class Robot extends TimedRobot {
       AutoManager.getAutoManager().runAutos();
     }
 
+    @Override
+    public void teleopInit() {
+        HardwareAdapter.getHardwareAdapter().configureHardware();
+        SubsystemManager.getInstance().initializeSubsystems();
+    }
     /**
      * This function is called periodically during operator control.
      */
     @Override
     public void teleopPeriodic() {
-        RoutineManager.getRoutineManager().runRoutine();
+        HardwareReader.getHardwareReader().updateSensorValues();
+        OperatorInterface.updateCommands();
+        SequentialRoutineManager.getRoutineManager().runRoutines();
+        SubsystemManager.getInstance().updateSubsystems();
     }
 
     /**
@@ -80,5 +90,10 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void testPeriodic() {
+    }
+
+    @Override
+    public void disabledInit() {
+        SubsystemManager.getInstance().disableSubsystems();
     }
 }

@@ -8,9 +8,10 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class HardwareWriter {
     private static HardwareWriter sHardwareWriter = new HardwareWriter();
-    public void applyDrivetrain(float leftOutput, float rightOutput) {
-        applySpark(HardwareAdapter.getHardwareAdapter().leftMasterSpark, leftOutput);
-        applySpark(HardwareAdapter.getHardwareAdapter().rightMasterSpark, rightOutput);
+    public void applyDrivetrain(double leftOutput, double rightOutput) {
+        System.out.println("left output: " + leftOutput + " right output " + rightOutput);
+        applySpark(HardwareAdapter.getHardwareAdapter().leftMasterSpark, leftOutput * 0.5);
+        applySpark(HardwareAdapter.getHardwareAdapter().rightMasterSpark, rightOutput * 0.5);
     }
 
     public void applySpark(CANSparkMax spark, double output) {
