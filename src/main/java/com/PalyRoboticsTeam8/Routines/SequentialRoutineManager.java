@@ -2,11 +2,7 @@ package com.PalyRoboticsTeam8.Routines;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
-/**
- * Only implemented as reverse sequential routine as of now
- */
 public class SequentialRoutineManager {
     private static SequentialRoutineManager sRoutineManager = new SequentialRoutineManager();
     private Queue<Routine> mRoutineSequence = new LinkedList<>();

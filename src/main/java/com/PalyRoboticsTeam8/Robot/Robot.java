@@ -8,6 +8,7 @@
 package com.PalyRoboticsTeam8.Robot;
 
 import com.PalyRoboticsTeam8.Autos.AutoSequence;
+import com.PalyRoboticsTeam8.Routines.ParallelRoutineManager;
 import com.PalyRoboticsTeam8.Routines.SequentialRoutineManager;
 import com.PalyRoboticsTeam8.Subsystems.Subsystem;
 import com.PalyRoboticsTeam8.Subsystems.SubsystemManager;
@@ -82,6 +83,7 @@ public class Robot extends TimedRobot {
         HardwareReader.getHardwareReader().updateSensorValues();
         OperatorInterface.updateCommands();
         SequentialRoutineManager.getRoutineManager().runRoutines();
+        ParallelRoutineManager.getRoutineManager().runRoutines();
         SubsystemManager.getInstance().updateSubsystems();
     }
 

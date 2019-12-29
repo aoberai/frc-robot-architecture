@@ -1,5 +1,6 @@
 package com.PalyRoboticsTeam8.Subsystems;
 
+import com.PalyRoboticsTeam8.Robot.Commands;
 import com.PalyRoboticsTeam8.Routines.SequentialRoutineManager;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,8 +26,12 @@ public class SubsystemManager {
     public void updateSubsystems() {
         for (Subsystem subsystem : mEnabledSubsystems) {
             if (!(subsystem instanceof Drive) || !(SequentialRoutineManager.getRoutineManager().getCalledRoutines() > 0)) {
-                subsystem.run();
+                Commands.getInstance().wantedDriveState = Drive.DriveState.ENABLED;
             }
+            else {
+                Commands.getInstance().wantedDriveState = Drive.DriveState.DISABLED;
+            }
+            subsystem.run();
         }
     }
 
