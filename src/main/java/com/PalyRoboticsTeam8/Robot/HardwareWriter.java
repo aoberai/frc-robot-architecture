@@ -6,12 +6,12 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class HardwareWriter {
+public class HardwareWriter extends HardwareAdapter{
     private static HardwareWriter sHardwareWriter = new HardwareWriter();
     public void applyDrivetrain(double leftOutput, double rightOutput) {
         System.out.println("left output: " + leftOutput + " right output " + rightOutput);
-        applySpark(HardwareAdapter.getHardwareAdapter().leftMasterSpark, leftOutput * 0.5);
-        applySpark(HardwareAdapter.getHardwareAdapter().rightMasterSpark, rightOutput * 0.5);
+        applySpark(leftMasterSpark, leftOutput * 0.5);
+        applySpark(rightMasterSpark, rightOutput * 0.5);
     }
 
     public void applySpark(CANSparkMax spark, double output) {

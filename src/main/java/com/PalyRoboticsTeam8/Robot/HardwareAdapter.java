@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class HardwareAdapter {
-    static HardwareAdapter sHardwareAdapter = new HardwareAdapter();
+    private static HardwareAdapter sHardwareAdapter = new HardwareAdapter();
 
     CANSparkMax leftMasterSpark = new CANSparkMax(Ports.sLeftMotorPorts[0], CANSparkMaxLowLevel.MotorType.kBrushless);
     CANSparkMax leftSlave1Spark = new CANSparkMax(Ports.sLeftMotorPorts[1], CANSparkMaxLowLevel.MotorType.kBrushless);

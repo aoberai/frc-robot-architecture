@@ -2,10 +2,9 @@ package com.PalyRoboticsTeam8.Autos;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class AutoManager {
-    static AutoManager sAutoManager = new AutoManager();
+    private static AutoManager sAutoManager = new AutoManager();
     private Queue<Auto> autoSequence = new LinkedList<>();
 
     public void addAuto(Auto auto) {
